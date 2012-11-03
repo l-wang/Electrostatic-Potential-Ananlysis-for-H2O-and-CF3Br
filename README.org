@@ -1,0 +1,18 @@
+* Project1 - Electrostatic Potential Ananlysis
+
+What:
+Display electrostatic potential(esp) with colormap on charge density isosurface.
+
+How:
+1. Get CHGCAR and LOCPOT files from previous calculation. (calcul.org is an example to generate CHGCAR and LOCPOT of CF3Br). Put these 2 files in work directory.
+
+2. esp.py and esp.org are the same, we can use either of which to generate esp 3d graphic of CF3Br in this repository.
+
+3. For other molecules, we need to find nd value in CHGCAR file and reset it in esp.py or esp.org file. nd is the number of each dimension we divide charge density. In some cases, we need to delete the last few lines of CHGCAR (i.e.the part of augmentation occupancies), but usually we don't need to do that.
+
+Why:
+Apparently this result is weird and I still don't know why. The distrubution of esp is not symmetric. In http://www.halogenbonding.eu/halogenbonding.php , we can see obvious sigma-hole in the outermost region of Br centered on the C-Br axis. (My colorbar is oppsite to the one in the literature because I haven't figure out how to set that colormap yet...)
+
+Where:
+dft-book(3.3.6 TODO Electrostatic Potential)
+http://docs.enthought.com/mayavi/mayavi/auto/example_atomic_orbital.html#example-atomic-orbital

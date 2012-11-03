@@ -1,0 +1,30 @@
+* mini-project
+** CF3Br
+#+BEGIN_SRC python :results output :exports both
+from jasp import *
+from ase import Atom, Atoms
+
+atoms = Atoms([Atom('C',  [ 0.0000, 	0.0000, 	-0.8088]),
+               Atom('Br', [ 0.0000, 	0.0000, 	 1.1146]),
+               Atom('F',  [ 0.0000, 	1.2455, 	-1.2651]),
+               Atom('F',  [ 1.0787,    -0.6228, 	-1.2651]),
+               Atom('F',  [-1.0787,    -0.6228, 	-1.2651])],
+               cell=(10, 10, 10))
+atoms.center()
+
+with jasp('molecules/CF3Br',
+          encut=350,
+          xc='PBE',
+          ibrion=1,
+          nsw=50,
+          lvtot=True,
+          lvhar=True,
+          atoms=atoms) as calc:
+    calc.set_nbands(f=2)
+    calc.calculate()
+
+print 'done'
+
+#+END_SRC
+
+#+RESULTS:
