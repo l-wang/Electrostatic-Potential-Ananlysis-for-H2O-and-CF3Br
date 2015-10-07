@@ -1,4 +1,4 @@
-* Project1 - Electrostatic Potential Ananlysis
+Electrostatic Potential Ananlysis
 
 What:
 Display electrostatic potential(esp) with colormap on charge density isosurface.
